@@ -36,6 +36,27 @@ var schema_three = {
     }
 };
 
+exports[ "kompare: exceptions" ] = {
+    "kompare throws when source_object isn't an object": function( test ) {
+        test.throws( function() {
+            kompare( false, schema_one );
+            kompare( "kikoo", schema_one );
+            kompare( false, schema_one, true );
+            kompare( "kikoo", schema_one, true );
+        } );
+        test.done();
+    },
+    "kompare throws when schema_object isn't valid": function( test ) {
+        test.throws( function() {
+            kompare( { "foo": "bar" }, false );
+            kompare( { "foo": "bar" }, false, true );
+            kompare( { "foo": "bar" }, { "foo": "bar" } );
+            kompare( { "foo": "bar" }, { "foo": [ "bar" ] } );
+        } );
+        test.done();
+    }
+};
+
 exports[ "kompare: schema_one" ] = {
     "valid_case": function( test ) {
         test.ok( kompare( {
@@ -53,12 +74,12 @@ exports[ "kompare: schema_one" ] = {
         test.done();
     },
     "failing_case": function( test ) {
-        test.ok( kompare( {
+        test.ok( !kompare( {
             "name": false,
             "age": "uhu?",
             "skills": [ "js", "css", "html" ],
             "experience": [
-                "flatland": {
+                {
                     "from": 2011
                 }
             ]
@@ -80,7 +101,7 @@ exports[ "kompare: schema_one" ] = {
         test.done();
     },
     "strict_mode: failing_case": function( test ) {
-        test.ok( kompare( {
+        test.ok( !kompare( {
             "name": "Leny",
             "age": 25,
             "address": "Liège, Belgium",
@@ -104,13 +125,13 @@ exports[ "kompare: schema_two" ] = {
                 "lat": 5.25,
                 "lng": 45.67
             },
-            "online": true
+            "online": true,
             "country": "Belgium"
         }, schema_two ) );
         test.done();
     },
     "failing_case": function( test ) {
-        test.ok( kompare( {
+        test.ok( !kompare( {
             "ip": [ 127, 0, 0, 1 ],
             "location": [ 5.25, 45.67 ],
             "online": "always"
@@ -129,13 +150,13 @@ exports[ "kompare: schema_two" ] = {
         test.done();
     },
     "strict_mode: failing_case": function( test ) {
-        test.ok( kompare( {
+        test.ok( !kompare( {
             "ip": "127.0.0.1",
             "location": {
                 "lat": 5.25,
                 "lng": 45.67
             },
-            "online": true
+            "online": true,
             "country": "Belgium"
         }, schema_two, true ) );
         test.done();
@@ -162,7 +183,7 @@ exports[ "kompare: schema_three" ] = {
         test.done();
     },
     "failing_case": function( test ) {
-        test.ok( kompare( {
+        test.ok( !kompare( {
             "lastname": "Delnatte",
             "firstname": "Pierre-Antoine",
             "age": 30,
@@ -171,7 +192,7 @@ exports[ "kompare: schema_three" ] = {
                 "number": 1,
                 "zip": 4000,
                 "city": "Liège",
-                "country": "Belgium"
+                "country": "Belgium",
                 "location": {
                     "lat": 5.25,
                     "lng": 45.67
@@ -198,7 +219,7 @@ exports[ "kompare: schema_three" ] = {
         test.done();
     },
     "strict_mode: failing_case": function( test ) {
-        test.ok( kompare( {
+        test.ok( !kompare( {
             "lastname": "Delnatte",
             "firstname": "Pierre-Antoine",
             "address": {
