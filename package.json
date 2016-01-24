@@ -1,6 +1,6 @@
 {
   "name": "kompare",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Compare an object with a simple schema.",
   "keywords": [
     "object",
