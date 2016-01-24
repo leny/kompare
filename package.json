@@ -1,0 +1,45 @@
+{
+  "name": "kompare",
+  "version": "0.0.0",
+  "description": "Compare an object with a simple schema.",
+  "keywords": [
+    "object",
+    "compare",
+    "check"
+  ],
+  "homepage": "https://github.com/leny/kompare",
+  "author": {
+    "name": "leny",
+    "email": "info@flatland.be",
+    "url": "http://leny.me"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/leny/kompare.git"
+  },
+  "bugs": {
+    "url": "https://github.com/leny/kompare/issues"
+  },
+  "licenses": [
+    {
+      "type": "UNLICENSE",
+      "url": "https://github.com/leny/kompare/blob/master/LICENSE"
+    }
+  ],
+  "main": "lib/kompare",
+  "engines": {
+    "node": ">= 4.0"
+  },
+  "scripts": {
+    "test": "grunt nodeunit"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.3.13",
+    "grunt": "^0.4.5",
+    "grunt-babel": "^6.0.0",
+    "grunt-contrib-nodeunit": "^0.4.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-eslint": "^17.3.1",
+    "load-grunt-tasks": "^3.4.0"
+  }
+}
