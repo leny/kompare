@@ -17,7 +17,7 @@ Install the module with: `npm install kompare`.
 
 ## Documentation
 
-**kompare** returns a `boolean` indicating if the first object conforms to the simple schema given in the second object.
+**kompare** returns a `boolean` indicating if the first object conforms to the simple schema given in the second object. Extra properties of the first objects are ignored.
 
 > **NOTE:** kompare is a young lib used for testing in some of my pro-work. It could (and should) change and evolve in the future. For now, its very simple.
 
@@ -57,6 +57,10 @@ See [tests](./test/kompare_test.js) for other examples.
 ### Schema object
 
 The **schema object** is a simple javascript object indicating the type (as `string`) of each property in **source object**. The value of a schema property can also be a `boolean`, indicating if the property **must** be present (or not) in the source object, regardless of his type.
+
+### Strict mode
+
+When `strict_mode` is set to `true`, the `source_object` must be conform to the `schema_object` and cannot have extra properties.
 
 ## Contributing
 
