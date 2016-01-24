@@ -71,4 +71,4 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 * **0.1.0**: Initial release (*24/01/16*)
 
 ## License
-(Un)licensed under the UNLICENSE
+(Un)licensed under the UNLICENSE, 2016.
