@@ -7,7 +7,8 @@ var schema_one = {
     "age": "number",
     "address": "string",
     "skills": "array",
-    "experience": "object"
+    "experience": "object",
+    "birthdate": "date"
 };
 
 var schema_two = {
@@ -69,6 +70,7 @@ exports[ "kompare: schema_one" ] = {
                     "from": 2011
                 }
             },
+            "birthdate": new Date( 1985, 4, 7 ),
             "hobbies": [ "music", "games", "teaching", "coding" ]
         }, schema_one ) );
         test.done();
@@ -82,7 +84,8 @@ exports[ "kompare: schema_one" ] = {
                 {
                     "from": 2011
                 }
-            ]
+            ],
+            "birthdate": "yesterday",
         }, schema_one ) );
         test.done();
     },
@@ -96,7 +99,8 @@ exports[ "kompare: schema_one" ] = {
                 "flatland": {
                     "from": 2011
                 }
-            }
+            },
+            "birthdate": new Date( 1985, 4, 7 )
         }, schema_one, true ) );
         test.done();
     },
